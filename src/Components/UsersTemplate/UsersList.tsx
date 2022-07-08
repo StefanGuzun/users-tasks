@@ -1,11 +1,19 @@
 import "../UsersStyle.css";
 
-const UsersList: React.FC = () => {
+interface Props{
+  users: Users
+}
+
+interface Users{
+  name: string;
+}
+
+const UsersList: React.FC <Props> = ({users}) => {
   return (
     <div>
     <ul>
       <div className="users">
-        <li style={{ marginLeft: "8px" }}>User 1</li>
+        <li style={{ marginLeft: "8px" }}>{users.name}</li>
       </div>
     </ul>
     </div>
