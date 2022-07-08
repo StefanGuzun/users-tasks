@@ -6,7 +6,7 @@ const UsersTasks = () => {
       <h1 style={{ marginRight: "245px", fontFamily: "Comic Neue" }}>
         Task List
       </h1>
-      <div className="constainerForTasks">
+      <div className="containerForTasks">
         <label>
           <input type="checkbox" />
           Option 1
