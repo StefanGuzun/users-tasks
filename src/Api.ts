@@ -7,12 +7,11 @@ const tasks = "https://jsonplaceholder.typicode.com/todos"
 
  export const getUsers = async () =>{
     await axios(users)
-    .then(result => result
+    .then(result => console.log(result)
     )}
 
 
 export const getTasks = async () =>{
     await axios(tasks)
     .then(result => console.log(result)
-    )
-}
+    )}
