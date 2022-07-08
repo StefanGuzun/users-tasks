@@ -1,6 +1,5 @@
 import "../UsersStyle.css";
 
-const UsersList: React.FC = () => {
 interface Props{
   users: Users
 }
@@ -20,5 +19,6 @@ const UsersList: React.FC <Props> = ({users}) => {
     </div>
   );
 };
+
 
 export default UsersList;
