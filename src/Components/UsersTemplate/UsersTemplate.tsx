@@ -2,21 +2,25 @@ import React,  { useEffect, useState } from "react";
 import "../UsersStyle.css";
 import UsersTasks from "../UsersTasks/UsersTasks";
 import UsersList from "./UsersList";
+import { getTasks, getUsers } from "../../Api";
 
 const UserTemplate: React.FC = () => {
 
   const [users, setUsers] = useState([])
+  const [tasks, setTasks] = useState<any>([])
 
   interface Users{
     name: string;
   }
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(response => response.json())
-    .then(res => setUsers(res))
-    .catch(err => console.log(err))
-  }, [])
+  interface Tasks{
+    title: string;
+  }
+useEffect(() => {
+    getTasks()
+    .then(res => setTasks(res.data))
+    getUsers()
+    .then(res => setUsers(res.data))
+}, [])
 
   return (
       <div className="container">
@@ -33,7 +37,10 @@ const UserTemplate: React.FC = () => {
             </h1>
             {users.map((users: Users) => <UsersList users={users}/>)}
           </div>
-          <UsersTasks />
+          <div>
+          <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neue" }}>Tasks</h1>
+          {tasks.map((tasks: Tasks) => <UsersTasks task={tasks}/>)}
+          </div>
         </div>
       </div>
   );

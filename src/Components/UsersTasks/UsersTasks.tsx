@@ -1,26 +1,23 @@
+import { getTasks } from "../../Api";
 import "../UsersStyle.css";
 
-const UsersTasks = () => {
+interface Props{
+  task: Tasks
+}
+
+interface Tasks{
+  title: string;
+}
+
+
+const UsersTasks: React.FC <Props> = ({task}) => {
   return (
-    <div className="taskConatiner">
-      <h1 style={{ marginRight: "245px", fontFamily: "Comic Neue" }}>
-        Task List
-      </h1>
       <div className="containerForTasks">
         <label>
           <input type="checkbox" />
-          Option 1
-        </label>
-        <label>
-          <input type="checkbox" />
-          Option 2
-        </label>
-        <label>
-          <input type="checkbox" />
-          Option 3
+          {task.title}
         </label>
       </div>
-    </div>
   );
 };
 

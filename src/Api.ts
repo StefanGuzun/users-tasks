@@ -2,16 +2,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 const users = "https://jsonplaceholder.typicode.com/users"
-const tasks = "https://jsonplaceholder.typicode.com/todos"
+const tasks = "https://jsonplaceholder.typicode.com/todos?limit_10"
 
 
  export const getUsers = async () =>{
-    await axios(users)
-    .then(result => console.log(result)
-    )}
+    return await axios(users)
+    }
 
 
 export const getTasks = async () =>{
-    await axios(tasks)
-    .then(result => console.log(result)
-    )}
+    return await axios(tasks)
+}
