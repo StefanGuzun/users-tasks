@@ -6,7 +6,10 @@ import UsersList from "./UsersList";
 const UserTemplate: React.FC = () => {
   return (
       <div className="container">
+        <div className="gradientBorder"/>
+        <div className="titleCont">
         <div className="title">
+        </div>
           <h1>Onboarding Tracker</h1>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
