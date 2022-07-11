@@ -3,6 +3,7 @@ import { getUsers } from './Api';
 import './App.css'; 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; 
 import Users from './Components/UsersTemplate/Users';
+import UsersTasks from "../src/Components/UsersTasks/UsersTasks"
 
  
 interface UsersProps {
@@ -28,6 +29,7 @@ return (
                 <Route path='users' element={<Users userList={users} />}/>
                 <Route path='users/:id/*' element={<Users userList={users} />} />
             </Routes>
+            <UsersTasks/>
         </div>
     </>
 )
