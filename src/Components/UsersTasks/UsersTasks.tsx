@@ -1,6 +1,7 @@
 import { getTasks } from "../../Api";
 import "../UsersStyle.css";
 import { useState, useEffect } from "react";
+import "./UsersTasks.css"
 
 interface data {
   id: number;
@@ -29,10 +30,11 @@ const UsersTasks = ({id}: data) => {
 
   return (
     <div className="containerForTasks">
+    <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h1>
     {selectTasks.map(task => {
       return(
       <div key={task.id}>
-      <label className="containerForTasks">
+      <label>
           <input type="checkbox" />
           {task.title}
       </label>

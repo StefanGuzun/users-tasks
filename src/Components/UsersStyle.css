@@ -5,6 +5,8 @@
     height: 100vh;
     margin-top: 15px;
     border: solid 4px black;border-top: none;
+    display: flex;
+    justify-content: space-around;
 }
 
 .title {
@@ -26,13 +28,6 @@
     height: 42px;
 }
 
-.containerForTasks {
-    font-family: 'Libre Baskerville', serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 13px;
-}
 .gradientBorder{
 width: 900px;
 height: 10px;

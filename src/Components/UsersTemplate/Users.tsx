@@ -23,6 +23,7 @@ const Users = ({ userList }: Props) => {
 
   return (
     <div className="container">
+      <div>
       <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Users</h2>
       {userList.map((user) => {
         return (
@@ -47,12 +48,8 @@ const Users = ({ userList }: Props) => {
           </div>
         );
       })}
-      <div
-        className="containerForTasks"
-      >
-        <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h1>
-        <UsersTasks id={currentId} />
       </div>
+        <UsersTasks id={currentId} />
     </div>
   );
 };
