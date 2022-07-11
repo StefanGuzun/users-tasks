@@ -2,7 +2,7 @@
 .container {
     border-radius: 5px;
     width: 900px;
-    height: 95vh;
+    height: 100vh;
     margin-top: 15px;
     border: solid 4px black;border-top: none;
 }
