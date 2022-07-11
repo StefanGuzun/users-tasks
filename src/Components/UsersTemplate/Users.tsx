@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../UsersStyle.css";
 import { Link } from "react-router-dom";
+import UsersTasks from "../UsersTasks/UsersTasks";
 
 interface User {
   id: number;
@@ -9,12 +10,12 @@ interface User {
   email: string;
 }
 
-interface UserListProps {
+interface Props {
   userList: User[];
 }
 
-const Users = ({ userList }: UserListProps) => {
-  let [currentUserId, setCurrentUserId] = useState(1);
+const Users = ({ userList }: Props) => {
+  let [currentId, setCurrentUserId] = useState(1);
 
   const onUserSelect = (id: number) => {
     setCurrentUserId(id);
@@ -42,11 +43,19 @@ const Users = ({ userList }: UserListProps) => {
                     </li>
                     </ul>
                 </div>
-            )})}
-      <div className='containerForTasks'>
+              </li>
+            </ul>
+          </div>
+        );
+      })}
+      <div
+        className="containerForTasks"
+      >
         <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h1>
+        <UsersTasks id={currentId} />
       </div>
     </div>
-  )}
+  );
+};
 
-export default Users
+export default Users;
