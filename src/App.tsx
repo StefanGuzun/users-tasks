@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'; 
-import { getTasks, getUsers } from './Api'; 
+import { getUsers } from './Api'; 
 import './App.css'; 
-import UserTemplate from './Components/UsersTemplate/Users'; 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; 
 import Users from './Components/UsersTemplate/Users';
 

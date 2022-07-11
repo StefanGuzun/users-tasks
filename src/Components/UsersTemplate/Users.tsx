@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../UsersStyle.css";
-import UsersTasks from "../UsersTasks/UsersTasks";
-import { getTasks, getUsers } from "../../Api";
 import { Link } from "react-router-dom";
 
 interface User {
