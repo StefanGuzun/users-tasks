@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../UsersStyle.css";
 import { Link } from "react-router-dom";
+import UsersTasks from "../UsersTasks/UsersTasks";
 
 interface User {
   id: number;
@@ -9,44 +10,51 @@ interface User {
   email: string;
 }
 
-interface UserListProps {
+interface Props {
   userList: User[];
 }
 
-const Users = ({ userList }: UserListProps) => {
-  let [currentUserId, setCurrentUserId] = useState(1);
+const Users = ({ userList }: Props) => {
+  let [currentId, setCurrentUserId] = useState(1);
 
   const onUserSelect = (id: number) => {
     setCurrentUserId(id);
   };
 
   return (
-    <div className='container'>
-    <div>
-        <h2 style={{display:"flex", justifyContent:"center"}}>Users</h2>
-        {userList.map(user => {
-            return (
-                <div key={user.id}>
-                    <ul>
-                        <li>
-                            <div className="users"
-                                id={user.id.toString()}
-                                onClick={() => onUserSelect(user.id)}>
-                                <Link
-                                    to={`/users/${user.id}`}
-                                    onClick={() => onUserSelect(user.id)} >{user.name}
-                                </Link>
-                            </div>
-                        </li>
-                    </ul>
+    <div className="container">
+      <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Users</h2>
+      {userList.map((user) => {
+        return (
+          <div key={user.id}>
+            <ul style={{ listStyle: "none" }}>
+              <li>
+                <div
+                  className="users"
+                  id={user.id.toString()}
+                  onClick={() => onUserSelect(user.id)}
+                >
+                  <Link
+                    style={{ color: "black", textDecoration: "none" }}
+                    to={`/users/${user.id}`}
+                    onClick={() => onUserSelect(user.id)}
+                  >
+                    {user.name}
+                  </Link>
                 </div>
-            )
-        })}
+              </li>
+            </ul>
+          </div>
+        );
+      })}
+      <div
+        className="containerForTasks"
+      >
+        <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h1>
+        <UsersTasks id={currentId} />
+      </div>
     </div>
-    <div className='containerForTasks'>
-    </div>
-</div>
-);
+  );
 };
 
 export default Users;

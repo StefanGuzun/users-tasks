@@ -2,29 +2,44 @@ import { getTasks } from "../../Api";
 import "../UsersStyle.css";
 import { useState, useEffect } from "react";
 
-// interface Props{
-//   task: Tasks
-// }
-
-interface Tasks{
-  title: string;
+interface data {
+  id: number;
 }
 
-const UsersTasks: React.FC = () => {
+interface Tasks {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 
-  // const [tasks, setTask] = useState <any> ([])
+const UsersTasks = ({id}: data) => {
 
+  const [tasks, setTask] = useState <Tasks[]> ([])
+  const [selectTasks, setSelectTasks] = useState<Tasks[]>([])
   useEffect(() => {
-    getTasks().then((item) => console.log(item.data.filter((task: { id: number; userId: number;}) => 
-        task.userId === 1 )))
+    getTasks()
+    .then((res) => setTask(res.data))
   }, [])
 
+  useEffect(() => {
+  const userTasks = tasks.filter((task: { userId: number; }) => task.userId === id)
+  setSelectTasks(userTasks)
+  }, [tasks, id])
+
   return (
-      <div className="containerForTasks">
-        <label>
+    <div className="containerForTasks">
+    {selectTasks.map(task => {
+      return(
+      <div key={task.id}>
+      <label className="containerForTasks">
           <input type="checkbox" />
-        </label>
-      </div>
+          {task.title}
+      </label>
+      </div> )
+    })
+  }
+  </div>
   );
 };
 
