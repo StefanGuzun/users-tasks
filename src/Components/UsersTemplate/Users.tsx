@@ -31,14 +31,14 @@ const Users = ({ userList }: UserListProps) => {
             return (
                 <div key={user.id}>
                     <ul style={{listStyle:"none"}}><li>
-                      <div className="users"
+                      <form className="users"
                            id={user.id.toString()}
                            onClick={() => onUserSelect(user.id)}>
                         <Link style={{color: "black", textDecoration: "none"}}
                             to={`/users/${user.id}`}
                             onClick={() => onUserSelect(user.id)} >{user.name}
                         </Link>
-                      </div>
+                      </form>
                     </li>
                     </ul>
                 </div>
