@@ -15,12 +15,19 @@ const UserTemplate: React.FC = () => {
   interface Tasks{
     title: string;
   }
+const variable2 = getUsers()
+.then(res => console.log(res.data.filter((x: {id: number; }) => x.id === 1)))
+const variable = getTasks()
+.then(res => console.log(res.data.filter((x: { userId: number; }) => x.userId === 1)))
+if(variable2 === variable){
+  console.log("hello world")
+}
 useEffect(() => {
     getTasks()
     .then(res => setTasks(res.data))
     getUsers()
-    .then(res => setUsers(res.data))
-}, [])
+    .then(res => setUsers(res.data)
+)}, [])
 
   return (
       <div className="container">
@@ -39,7 +46,7 @@ useEffect(() => {
           </div>
           <div>
           <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neue" }}>Tasks</h1>
-          {tasks.map((tasks: Tasks) => <UsersTasks task={tasks}/>)}
+          {tasks.map((tasks: Tasks, id: React.Key | null | undefined) => <UsersTasks key={id = 1} task={tasks}/>)}
           </div>
         </div>
       </div>
