@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'; 
-import { getUsers } from './Api'; 
-import './App.css'; 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; 
+import { useEffect, useState } from 'react';
+import { getUsers } from './Api';
+import './App.css';
+import { Route, Routes } from "react-router-dom";
 import Users from './Components/UsersTemplate/Users';
 
- 
+
 interface UsersProps {
   id: number;
   name: string;
@@ -12,8 +12,8 @@ interface UsersProps {
   email: string;
 }
 
-const App = () => { 
- 
+const App = () => {
+
   const [users, setUsers] = useState<UsersProps[]>([]);
 
   useEffect(() => {
@@ -32,6 +32,6 @@ return (
     </>
 )
 }
-  
- 
+
+
 export default App;

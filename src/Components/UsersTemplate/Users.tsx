@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../UsersStyle.css";
 import { Link } from "react-router-dom";
 
@@ -21,32 +21,32 @@ const Users = ({ userList }: UserListProps) => {
   };
 
   return (
-    <div className='container'>
-    <div>
-        <h2 style={{display:"flex", justifyContent:"center"}}>Users</h2>
+    <div className="container">
+      <div className="gradientBorder"/>
+      <div className="titleCont">
+        <h1>Onboard Tracker</h1>
+      </div>
+        <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Users</h2>
         {userList.map(user => {
             return (
                 <div key={user.id}>
-                    <ul>
-                        <li>
-                            <div className="users"
-                                id={user.id.toString()}
-                                onClick={() => onUserSelect(user.id)}>
-                                <Link
-                                    to={`/users/${user.id}`}
-                                    onClick={() => onUserSelect(user.id)} >{user.name}
-                                </Link>
-                            </div>
-                        </li>
+                    <ul style={{listStyle:"none"}}><li>
+                      <div className="users"
+                           id={user.id.toString()}
+                           onClick={() => onUserSelect(user.id)}>
+                        <Link style={{color: "black", textDecoration: "none"}}
+                            to={`/users/${user.id}`}
+                            onClick={() => onUserSelect(user.id)} >{user.name}
+                        </Link>
+                      </div>
+                    </li>
                     </ul>
                 </div>
-            )
-        })}
+            )})}
+      <div className='containerForTasks'>
+        <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h1>
+      </div>
     </div>
-    <div className='containerForTasks'>
-    </div>
-</div>
-);
-};
+  )}
 
-export default Users;
+export default Users

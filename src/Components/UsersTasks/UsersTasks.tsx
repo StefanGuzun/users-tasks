@@ -12,12 +12,10 @@ interface Tasks{
 
 const UsersTasks: React.FC <Props> = ({task}) => {
   return (
-      <div className="containerForTasks">
-        <label>
+      <label className="containerForTasks">
           <input type="checkbox" />
           {task.title}
-        </label>
-      </div>
+      </label>
   );
 };
 
