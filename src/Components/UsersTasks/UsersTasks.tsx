@@ -1,7 +1,6 @@
 import { getTasks } from "../../Api";
 import "../UsersStyle.css";
 import { useState, useEffect } from "react";
-import "./UsersTasks.css"
 
 interface data {
   id: number;
@@ -18,6 +17,18 @@ const UsersTasks = ({id}: data) => {
 
   const [tasks, setTask] = useState <Tasks[]> ([])
   const [selectTasks, setSelectTasks] = useState<Tasks[]>([])
+
+  const handleCheckBoxPosition = (id: string) => {
+    const temporaryTasks = [...tasks];
+
+    const tasksToChange = tasks.filter(todo => todo.id.toString() === id)
+    tasksToChange[0].completed = !tasksToChange[0].completed
+
+    const index = tasks.findIndex(todo => todo.id === tasksToChange[0].id)
+    temporaryTasks[index] = tasksToChange[0];
+    setTask(temporaryTasks)
+
+  }
   useEffect(() => {
     getTasks()
     .then((res) => setTask(res.data))
@@ -30,12 +41,18 @@ const UsersTasks = ({id}: data) => {
 
   return (
     <div className="containerForTasks">
-    <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h1>
     {selectTasks.map(task => {
       return(
       <div key={task.id}>
-      <label>
-          <input type="checkbox" />
+      <label className="containerForTasks">
+      <input
+          type="checkbox"
+          id={task.id.toString()}
+          value={task.id}
+          onChange={() => handleCheckBoxPosition(task.id.toString())}
+          defaultChecked={task.completed}
+          disabled={task.completed}
+      />
           {task.title}
       </label>
       </div> )
