@@ -43,10 +43,7 @@ const Users = ({ userList }: Props) => {
                     </li>
                     </ul>
                 </div>
-              </li>
-            </ul>
-          </div>
-        );
+             );
       })}
       <div
         className="containerForTasks"
