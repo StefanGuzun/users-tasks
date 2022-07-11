@@ -5,32 +5,26 @@ import { getTasks, getUsers } from "../../Api";
 import { Link } from "react-router-dom";
 
 
-
-const UserTemplate: React.FC = () => {
-  const [users, setUsers] = useState([])
-  const [tasks, setTasks] = useState<any>([])
-  const [curentId,setCurentId] = useState(1)
-
-  interface Users{
-    name: string;
-  }
-  interface Tasks{
-    title: string;
-  }
-const auf = (id: number) =>{
-   setCurentId(id)
+interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
 }
 
-useEffect(() => {
-    getTasks()
-    .then(res => setTasks(res.data))
-    getUsers()
-    .then(res => setUsers(res.data))
-}, [])
+interface UserListProps {
+  userList: User[]
+}
 
+const Users = ({ userList }: UserListProps) => {
+  let [currentUserId, setCurrentUserId] = useState(1)
+
+  const onUserSelect = (id: number) =>  {
+      setCurrentUserId(id)
+  }
 
 return (
-  <div className="container">
+    <div className="container">
     <div className="gradientBorder" />
     <div className="titleCont">
       <div className="title">
@@ -42,10 +36,11 @@ return (
         <h1 style={{ marginLeft: "33px", fontFamily: "Comic Neue" }}>
           Users
         </h1>
-        {users.map((users: Users) => <div>
+        {userList.map((user) => 
+        <div>
           <ul>
             <div className="users">
-              <li style={{ marginLeft: "8px" }}>{users.name}</li>
+              <li style={{ marginLeft: "8px" }}>{user.name}</li>
             </div>
           </ul>
         </div>)}
@@ -59,4 +54,4 @@ return (
 );
 };
 
-export default UserTemplate;
+export default Users;
