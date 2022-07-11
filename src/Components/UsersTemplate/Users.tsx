@@ -23,24 +23,25 @@ const Users = ({ userList }: Props) => {
 
   return (
     <div className="container">
-      <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Users</h2>
-      {userList.map((user) => {
-        return (
-          <div key={user.id}>
-            <ul style={{ listStyle: "none" }}>
-              <li>
-                <div
-                  className="users"
-                  id={user.id.toString()}
-                  onClick={() => onUserSelect(user.id)}
-                >
-                  <Link
-                    style={{ color: "black", textDecoration: "none" }}
-                    to={`/users/${user.id}`}
-                    onClick={() => onUserSelect(user.id)}
-                  >
-                    {user.name}
-                  </Link>
+      <div className="gradientBorder"/>
+      <div className="titleCont">
+        <h1>Onboard Tracker</h1>
+      </div>
+        <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Users</h2>
+        {userList.map(user => {
+            return (
+                <div key={user.id}>
+                    <ul style={{listStyle:"none"}}><li>
+                      <form className="users"
+                           id={user.id.toString()}
+                           onClick={() => onUserSelect(user.id)}>
+                        <Link style={{color: "black", textDecoration: "none"}}
+                            to={`/users/${user.id}`}
+                            onClick={() => onUserSelect(user.id)} >{user.name}
+                        </Link>
+                      </form>
+                    </li>
+                    </ul>
                 </div>
               </li>
             </ul>

@@ -2,7 +2,6 @@
 .container {
     border-radius: 5px;
     width: 900px;
-    height: 100vh;
     margin-top: 15px;
     border: solid 4px black;border-top: none;
 }
@@ -24,7 +23,12 @@
     font-family: 'Libre Baskerville', serif;
     width: 161px;
     height: 42px;
+
 }
+.users:focus-within{
+    width: 161px;
+    background-color: #eeeeee;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.22) 0 1px 3px -1px;}
 
 .containerForTasks {
     font-family: 'Libre Baskerville', serif;
