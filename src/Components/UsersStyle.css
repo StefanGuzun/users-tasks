@@ -9,12 +9,6 @@
     border-top: none;
 }
 
-.title {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 25px;
-    text-align: center;
-}
-
 .users {
     border-radius: 5px;
     display: flex;
@@ -26,16 +20,6 @@
     font-family: 'Libre Baskerville', serif;
     width: 161px;
     height: 42px;
-}
-
-#user-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.lists {
-    display: flex;
-    justify-content: space-around;
 }
 
 .users:focus-within {

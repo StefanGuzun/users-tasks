@@ -27,8 +27,8 @@ const Users = ({ userList }: Props) => {
       <div className="titleCont">
         <h1>Onboard Tracker</h1>
       </div>
-      <div className="lists">
-        <div id="user-list">
+      <div className="lists" style={{display: "flex", justifyContent: "space-around"}}>
+        <div id="user-list" style={{display: "flex", flexDirection: "column"}}>
           <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Users</h2>
           {userList.map((user) => {
             return (

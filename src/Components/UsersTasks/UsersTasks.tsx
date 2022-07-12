@@ -39,6 +39,7 @@ const UsersTasks = ({ id }: data) => {
 
   return (
     <div className="containerForTasks">
+      <h2 style={{ marginLeft: "33px", fontFamily: "Comic Neu" }}>Tasks</h2>
       {selectTasks.map((task) => {
         return (
           <div key={task.id}>
